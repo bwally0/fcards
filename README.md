@@ -19,6 +19,12 @@ fcards takes one argument which is the path to the .txt containing you flashcard
 fcards <path/to/cards.txt>
 ```
 
+![demo](./demo.png)
+
+- use left and right arrow to switch cards
+- use up and down arrow to flip card
+- use ctrl+q to quit application
+
 ## cards.txt format
 
 to create new flashcard set, create a text file with the following format:
