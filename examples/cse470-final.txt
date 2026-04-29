@@ -1,0 +1,5 @@
+Q>T/F In the Phong illumination model, the dot product between the unit reflection vector and the unit view vector attenuates the specular light.
+A>True
+
+Q>T/F In the Phong illumination model, the surface normal influences the specular light.
+A>True
