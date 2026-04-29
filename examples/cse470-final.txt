@@ -1,5 +1,61 @@
+# quiz: lighting and shading
 Q>T/F In the Phong illumination model, the dot product between the unit reflection vector and the unit view vector attenuates the specular light.
 A>True
 
 Q>T/F In the Phong illumination model, the surface normal influences the specular light.
 A>True
+
+Q>T/F The Phong illumination is another name for Phong shading.
+A>False
+
+Q>T/F In the Phong illumination model, the dot product between the unit light vector and the unit normal vector attenuates the specular light.
+A>False
+
+Q>T/F Phong shading interpolates the normals defined at the vertices and then computes the lighting at the current fragment.
+A>True
+
+Q>T/F If a blue ball is illuminated by a white light, the ball with appear yellow.
+A>False
+
+Q>cos(pi/2) = 0
+A>True
+
+Q>T/F In the Phong illumination model, the diffuse light is dependent on the viewer's location.
+A>False
+
+Q>The Phong illumination model invovles Lambert's cosine law for diffuse lighting.
+A>True
+
+Q>In the Phong illumination model, the specular light is dependent on the viewer's location.
+A>True
+
+# quiz: texture mapping
+Q>T/F For texture mapping, 2D texture coordinates must be assigned to each vertex.
+A>True
+
+Q>T/F Mipmapping is a method for pre-filtering the texture.
+A>True
+
+Q>T/F A texture element is called a taxel.
+A>False, it's a "texel", not a "taxel".
+
+Q>T/F In texture mapping, magnification can cause aliasing.
+A>True
+
+Q>T/F Render to texture is a method for creating a texture.
+A>True
+
+Q>T/F A texture's coordinates live in the unit square.
+A>True
+
+Q>T/F In texture mapping, many texels might be associated with one pixels. This is called magnification.
+A> False, this is called minification.
+
+Q>T/F A normal map is a type of bump map that is reprsented by a 2D array of normal vectors.
+A>True
+
+Q>In texture mapping, there is only one way to determine the color of a fragment.
+A>False, there can be a lot of ways.
+
+Q>Mipmapping is a method for dealing with the magnification problem.
+A>False, this deals with the minification problem.

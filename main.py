@@ -15,6 +15,9 @@ def parse_cards(path: str) -> list[tuple[str, str]]:
         elif line.startswith("A>"):
             a = line[2:].strip()
             cards.append((q, a))
+        elif line.startswith("#"):
+            continue
+
     return cards
 
 

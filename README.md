@@ -14,7 +14,12 @@ pip install .
 fcards ./examples/cse470-final.txt
 ```
 
-## .txt format
+fcards takes one argument which is the path to the .txt containing you flashcards:
+``` bash
+fcards <path/to/cards.txt>
+```
+
+## cards.txt format
 
 to create new flashcard set, create a text file with the following format:
 ```
@@ -24,5 +29,5 @@ A>your answer here
 Q>your question here
 A>your answer here
 
-and so on ...
+# this is a comment, it's ignored
 ```
