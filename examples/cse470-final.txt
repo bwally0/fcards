@@ -59,3 +59,173 @@ A>False, there can be a lot of ways.
 
 Q>Mipmapping is a method for dealing with the magnification problem.
 A>False, this deals with the minification problem.
+
+# quiz: hmodels and SORs
+Q>In the robot program, the base is built from the prototype cube using a scale S and translation T matrix. If a world rotation R is input via the user interface, the order of matrices are ...
+A>R * T * S
+
+Q>In animation, linear interpolation between given states, like angles, is called ...
+A>in-betweening
+
+Q>T/F When theta is -90 when t = 0, theta is +90 when t = 1. Does the linear equation, theta = (1-t)*(90) + t*(-90), satisfy the requirement?
+A>False, this makes theta = 90 when t = 0 and theta = -90 when t = 1.
+
+Q>In computer graphics, a representation of all the elements of a scene is called a ...
+A>Scene Graph
+
+Q>A hierarchical model might use a ____ data structure to represent the dependencies of the parts.
+A>Tree
+
+Q>T/F One benefit of building instances from a prototype is that the geoemtry needs to be sent to the GPU just once.
+A>True
+
+Q>T/F A scene graph is always represented as a tree.
+A>False, there are many ways to represent this hierarchy for e.g. DAGs.
+
+Q>T/F The vector [1,1,0] is unit length.
+A>False, it's length is not 1.
+
+Q>T/F For the surface of revolution, [2cos(a), t, 2sin(a)] for a = [0, 2pi] and t = [0, 1], the partial derivative with respect to t is [0,1,0].
+A>True
+
+Q>T/F The surface of revolution, [2cos(a), t, 2sin(a)] for a = [0, 2pi] and t = [0, 1] is a cylinder.
+A>True
+
+# quiz: pixels and global illumination
+Q>T/F Ray tracing is easily implemented with a recursice algorithm.
+A>True
+
+Q>T/F A shadow feeler is a vector used to determine if a light is visible to a vertex.
+A>True
+
+Q>T/F Ray tracing achieves shadows with the shadow feeler.
+A>True
+
+Q>T/F Ray tracing emits rays from the light sources and follows them until they hit the eye.
+A>False, this is called ray casting.
+
+Q>T/F The Cohen-Sutherland algorithm has the means for trivial accept and trivial reject of a primitive built into it.
+A>True
+
+Q>T/F Bresenham's line algorithm is optimized to require integer math only.
+A>True
+
+Q>T/F An image is written to the front buffer and displayed on the back buffer.
+A>False, an image is written to the back buffer to be displayed on the front buffer.
+
+Q>T/F The front and back buffers are two of the buffers in webGL.
+A>True
+
+Q>T/F These days, displays are so high quality that aliasing is no longer a problem.
+A>False, aliasing is still a problem.
+
+Q>T/F Clipping removes geometry from the pipeline.
+A>True
+
+# final exam review
+Q>What are the six fundamental coordinate transformations in computer graphs?
+A>model/object/world -> eye -> clip -> NDC -> window
+
+Q>What are the vectors and points used in calculating the Phong illumination model?
+A> light vector, normal vector, view vector, reflection (of light vector across normal), halfway vector (between light vector and view vector).
+
+Q>Which Phong illumination model property is based on viewer's position?
+A>Specular.
+
+Q>Which Phong illumination model property is based on surface normal?
+A>Diffuse.
+
+Q>What is the maximum value of the cosine function from -pi to pi?
+A>Max value is 1, min value is -1.
+
+Q>What is the shininess coefficient in the Phong model?
+A>Shininess sharpens the specular highlight.
+
+Q>If a red ball is illuminated by a blue light, what color will the Phong model render the ball?
+A>A black ball, [1,0,0]*[0,0,1] = [0,0,0].
+
+Q>Flat shading.
+A>Light/color is computed per triangle.
+
+Q>Gouraud shading.
+A>Interpolate the color at each vertex aka vertex shading.
+
+Q>Phong shading.
+A>AKA fragment shading, give algorithms points and normals at the vertices and compute phong at each fragment normal.
+
+Q>What is per-fragment lighting?
+A>Phong shading.
+
+Q>Give a triangle with vertices colored red, green and blue what is the smooth shaded color at the centroid?
+A>[1/3, 1/3, 1/3] which is Grey.
+
+Q>A surface of revolution s(v, theta) is defined by generating curve g(v) = [v^2,0,v] for v=[0,1] and a rotation around the y-axis. What is the parametric equation for s(v, theta)?
+A>s(v, theta) = [v^2*cos(theta),v,v^2*sin(theta)]
+
+Q>How is the surface normal for s(v, theta) calculated?
+A>partial of s wrt v cross partial of theta wrt theta / || *** || normalized vector.
+
+Q>What is backface culling?
+A>The surface opposite of the normal vector for a triangle is not rendered.
+
+Q>What are the two fundamental steps in texture mapping?
+A>1. Assign texture coordinates to the vertices. 2. Assigning color to a pixel based on texture coordinates. 
+
+Q>A picture element is called a pixel. What is a texture element called?
+A>Texel
+
+Q>Is color assignment in texture mapping performed in the vertex shader or fragment shader?
+A>Fragment shader.
+
+Q>What is minification?
+A>Many texels to one pixel
+
+Q>What is magnification?
+A>One texel to many pixels
+
+Q>What is mipmapping and why is it used?
+A>Store a series of progressively smaller pre-filtered copies of the same texture. Used to reduce aliasing.
+
+Q>How is the appeareance of a bump achieved in bump mapping?
+A>The bump map changes the surface normal at each pixel before lighting calculations without changing geoemtry.
+
+Q>What is a bump map?
+A>Is a grayscale texture where each texel's intensity represents a height value on a surface.
+
+Q>What is NPR an acronym for?
+A>Non-Photorealistic Rendering
+
+Q>Give an example of a method to assign texture coordinates to a vector.
+A>UV unwraping, planar projection, cylindrical project, box/cubic projection.
+
+Q>What type of edges are outlined in cel shading to produce a cartoonish apperance.
+A>Silhouette edges are outlined or could be crease edges or border edges.
+
+Q>Name three buffers in the set of framebuffers.
+A>front buffer, back buffer, depth buffer, stencil buffer.
+
+Q>What are the two cases in Cohen-Sutherland to define polygons in or outside the the viewing volume?
+A>Trivial accept and trivial reject.
+
+Q>Why is ray tracing called a global illumination model?
+A>Accounts for indirect lighting, not just direct light from a source hitting a surface.
+
+Q>When does ray tracing produce the same image as the phong illumination model?
+A>Scene contains only diffuse, non-reflective, non-refractive, opaque surfaces. When there is no recursion.
+
+Q>What is a shadow feeler?
+A>A shadow feeler (shadow ray) is a ray cast from the surface intersection point towards a light source during ray tracing.
+
+Q>Transformations that take the prototype to the desired position in model spce is called an ____ transformation.
+A>Instance transformation
+
+Q>When drawing the torso of a figure in a hierarchical model in what order do you multiply scale and translation, what is the ModelView matrix?
+A>M_s * M_i, put into place then set up the camera.
+
+Q>What is the input for generating a subdivision surface?
+A>Triangle mesh
+
+Q>Name one subdivision surface method.
+A>Catmull-clark,
+
+# quiz: rasterization
