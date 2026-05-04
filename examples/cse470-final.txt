@@ -29,6 +29,15 @@ A>True
 Q>In the Phong illumination model, the specular light is dependent on the viewer's location.
 A>True
 
+Q>T/F The ambient term in the Phong model accounts for indirect light scattered throughout the scene.
+A>True
+
+Q>T/F The Blinn-Phong model replaces the reflection vector with the halfway vector between the light and view vectors.
+A>True
+
+Q>T/F When the dot product of the light vector and normal vector is negative, the diffuse contribution is set to a negative value.
+A>False, it is clamped to 0.
+
 # quiz: texture mapping
 Q>T/F For texture mapping, 2D texture coordinates must be assigned to each vertex.
 A>True
@@ -59,6 +68,15 @@ A>False, there can be a lot of ways.
 
 Q>Mipmapping is a method for dealing with the magnification problem.
 A>False, this deals with the minification problem.
+
+Q>T/F GL_NEAREST texture filtering returns the texel closest to the texture coordinate, while GL_LINEAR interpolates neighboring texels.
+A>True
+
+Q>T/F When texture coordinates exceed the range [0,1], the behavior is undefined.
+A>False, it depends on the wrap mode (GL_REPEAT, GL_CLAMP_TO_EDGE, GL_MIRRORED_REPEAT).
+
+Q>T/F An environment map is a texture used to simulate reflections of the surrounding scene on a surface.
+A>True
 
 # quiz: hmodels and SORs
 Q>In the robot program, the base is built from the prototype cube using a scale S and translation T matrix. If a world rotation R is input via the user interface, the order of matrices are ...
@@ -91,6 +109,15 @@ A>True
 Q>T/F The surface of revolution, [2cos(a), t, 2sin(a)] for a = [0, 2pi] and t = [0, 1] is a cylinder.
 A>True
 
+Q>T/F The model matrix transforms coordinates from object space to world space.
+A>True
+
+Q>T/F Matrix multiplication for transformations is commutative, so the order does not matter.
+A>False, order matters. Rotation then translation is different from translation then rotation.
+
+Q>T/F Homogeneous coordinates use 4D vectors so that translation can be represented as matrix multiplication.
+A>True
+
 # quiz: pixels and global illumination
 Q>T/F Ray tracing is easily implemented with a recursice algorithm.
 A>True
@@ -120,6 +147,15 @@ Q>T/F These days, displays are so high quality that aliasing is no longer a prob
 A>False, aliasing is still a problem.
 
 Q>T/F Clipping removes geometry from the pipeline.
+A>True
+
+Q>T/F Local illumination models like Phong account for reflections and refractions from other objects.
+A>False, only global illumination models like ray tracing account for those.
+
+Q>T/F Snell's law describes how a ray bends when passing from one medium to another in ray tracing.
+A>True
+
+Q>T/F In recursive ray tracing, recursion terminates when the ray misses all objects or the maximum recursion depth is reached.
 A>True
 
 # final exam review
@@ -226,6 +262,79 @@ Q>What is the input for generating a subdivision surface?
 A>Triangle mesh
 
 Q>Name one subdivision surface method.
-A>Catmull-clark,
+A>Catmull-clark.
+
+# quiz: pipeline
+Q>T/F The fragment shader executes before the vertex shader.
+A>False, vertex shader executes before fragment shader.
+
+Q>T/F A triangle mesh is a primitive computer graphics element.
+A>False, points, lines, and triangles are primitive elements.
+
+Q>T/F In computer graphics, we use the RGBA color model.
+A>True
+
+Q>T/F The frame buffer is stored in the compute
+A>False
+
+Q>T/F The frame buffer holds pixel data.
+A>True
+
+Q>T/F The vertex shader is responsible for transforming vertex positions from object space to clip space.
+A>True
+
+Q>T/F The GPU pipeline processes vertices and fragments in a fixed, non-programmable order.
+A>False, the vertex shader and fragment shader are programmable stages.
+
+Q>T/F Primitives are assembled from vertices after the vertex shader stage.
+A>True
+
+Q>T/F The fragment shader determines the final color of each pixel.
+A>True
+
+Q>T/F In WebGL, geometry data is sent to the GPU using buffer objects.
+A>True
+
+Q>T/F Uniforms in a shader change per vertex.
+A>False, uniforms are constant across all vertices/fragments in a single draw call. Attributes change per vertex.
+
+Q>T/F Attributes, uniforms, and varyings all change per vertex.
+A>False, only attributes change per vertex. Uniforms are constant per draw call, and varyings are interpolated from vertex shader to fragment shader.
+
+Q>T/F gl.drawElements uses an index buffer to avoid duplicating vertex data.
+A>True
+
+Q>T/F The depth test compares the z-value of an incoming fragment against the stored z-value and keeps the farther fragment.
+A>False, it keeps the closer fragment.
+
+Q>T/F In the WebGL pipeline, the fragment shader executes after rasterization.
+A>True
 
 # quiz: rasterization
+Q>T/F Projection is part of rasterization.
+A>False
+
+Q>T/F Rasterization converts primitives into fragments.
+A>True
+
+Q>T/F A fragment produced by rasterization always becomes a pixel in the final image.
+A>False, fragments can be discarded by the depth test, stencil test, or other operations.
+
+Q>T/F Rasterization occurs after the vertex shader and before the fragment shader.
+A>True
+
+Q>T/F During rasterization, vertex attributes such as color and texture coordinates are interpolated across the primitive.
+A>True
+
+Q>T/F The depth buffer (z-buffer) is used during rasterization to resolve visibility.
+A>True
+
+Q>T/F Rasterization is a programmable stage of the pipeline.
+A>False, rasterization is a fixed-function stage.
+
+Q>T/F A fragment and a pixel are the same thing.
+A>False, a fragment is a candidate pixel with associated data (color, depth, texture coords); a pixel is the final value written to the screen.
+
+Q>T/F Anti-aliasing reduces jagged edges by sampling and blending colors at primitive boundaries.
+A>True
+
